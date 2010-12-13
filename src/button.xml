@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<bean id="button"
+		class="com.esen.spring.sample.button.Button">
+		<constructor-arg value="moon">
+		</constructor-arg>
+		<property name="buttonService" >
+			<ref bean="led"/>
+		</property>
+	</bean> 
+	
+	<bean id="lamp" class="com.esen.spring.sample.button.Lamp">
+	</bean>
+	
+	<bean id="led" class="com.esen.spring.sample.button.Led">
+	</bean>
+	
+	<bean id="buttoninner"
+		class="com.esen.spring.sample.button.Button">
+		<constructor-arg value="moon">
+		</constructor-arg>
+		<property name="buttonService" >
+			<!--注意lampinner的id不能为lamp，bean的id是唯一的-->
+			<bean id="lampinner" class="com.esen.spring.sample.button.Lamp">
+			</bean>
+		</property>
+	</bean> 
+</beans>
